@@ -50,7 +50,7 @@ class Magazine:
         return list({article.author for article in self.articles()})
 
     def article_titles(self):
-        pass
+        return [article.title for article in self.articles()]
 
     def contributing_authors(self):
         pass
