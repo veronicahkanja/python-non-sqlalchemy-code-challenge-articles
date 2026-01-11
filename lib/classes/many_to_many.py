@@ -53,4 +53,9 @@ class Magazine:
         return [article.title for article in self.articles()]
 
     def contributing_authors(self):
-        pass
+        authors = []
+        for author in self.contributors():
+            count = len([a for a in self.articles() if a.author == author])
+            if count > 2:
+                authors.append(author)
+                return authors
