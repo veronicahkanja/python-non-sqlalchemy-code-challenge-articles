@@ -12,21 +12,26 @@ class Article:
         self.title = title
         
         Article.all.append(self)
+
+
 class Author:
     def __init__(self, name):
+        if not isinstance(name, str) or len(name) == 0:
+            raise Exception ("Name must bee a non-empty string")
         self.name = name
 
+
     def articles(self):
-        pass
+        return [article for article in Article.all if article.author == self]
 
     def magazines(self):
-        pass
+       return list({article.magazine for article in self.articles()})
 
     def add_article(self, magazine, title):
-        pass
+        return Article(self, magazine, title)
 
     def topic_areas(self):
-        pass
+         return list({magazine.category for magazine in self.magazines()})
 
 class Magazine:
     def __init__(self, name, category):
