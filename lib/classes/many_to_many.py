@@ -28,6 +28,16 @@ class Author:
             raise Exception ("Name must bee a non-empty string")
         self.name = name
 
+    @property
+    def name(self):
+        return self._name
+    
+
+    @name.setter
+    def name(self, value):
+        return
+        
+
 
     def articles(self):
         return [article for article in Article.all if article.author == self]
@@ -39,6 +49,8 @@ class Author:
         return Article(self, magazine, title)
 
     def topic_areas(self):
+         if len(self.articles()) ==0:
+             return None
          return list({magazine.category for magazine in self.magazines()})
 
 class Magazine:
