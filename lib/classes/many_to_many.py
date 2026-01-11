@@ -35,6 +35,11 @@ class Author:
 
 class Magazine:
     def __init__(self, name, category):
+        if not isinstance(name, str) or not (2 <= len(name) <= 16):
+          raise Exception("Invalid magazine name")
+        if not isinstance(category, str) or len(category) == 0:
+            raise Exception("Invalid category")
+           
         self.name = name
         self.category = category
 
