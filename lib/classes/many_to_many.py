@@ -9,13 +9,13 @@ class Article:
         
         self.author = author
         self.magazine = magazine
-        self.title = title
+        self._title = title 
         
         Article.all.append(self)
 
 @property
 def title(self):
-    return self.title
+   return self._title
 
 @title.setter
 def title(self, value):
