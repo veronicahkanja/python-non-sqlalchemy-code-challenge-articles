@@ -1,9 +1,17 @@
 class Article:
+    all = []
+    
     def __init__(self, author, magazine, title):
+        if not isinstance(title, str):
+            raise Exception("Title must be a string")
+        if not (5 <= len(title) <= 50):
+            raise Exception ("Title must be between 5 and 50 characters")
+        
         self.author = author
         self.magazine = magazine
         self.title = title
         
+        Article.all.append(self)
 class Author:
     def __init__(self, name):
         self.name = name
