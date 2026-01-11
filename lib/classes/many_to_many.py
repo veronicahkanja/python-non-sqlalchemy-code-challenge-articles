@@ -13,6 +13,14 @@ class Article:
         
         Article.all.append(self)
 
+@property
+def title(self):
+    return self.title
+
+@title.setter
+def title(self, value):
+    pass
+
 
 class Author:
     def __init__(self, name):
