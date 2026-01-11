@@ -47,7 +47,7 @@ class Magazine:
         return [article for article in Article.all if article.magazine == self]
 
     def contributors(self):
-        pass
+        return list({article.author for article in self.articles()})
 
     def article_titles(self):
         pass
